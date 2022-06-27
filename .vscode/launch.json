@@ -5,32 +5,70 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "App-Pro-Debug",
+            "name": "debug-development",
             "type": "dart",
             "request": "launch",
             "program": "lib/main.dart",
-            "flutterMode": "debug"
+            "flutterMode": "debug",
+            "args": [
+                "--flavor",
+                "development"
+            ]
         },
         {
-            "name": "App-Pro-Release",
+            "name": "release-development",
             "type": "dart",
             "request": "launch",
             "program": "lib/main.dart",
-            "flutterMode": "release"
+            "flutterMode": "release",
+            "args": [
+                "--flavor",
+                "development"
+            ]
         },
         {
-            "name": "App-Dev-Release",
+            "name": "debug-staging",
             "type": "dart",
             "request": "launch",
             "program": "lib/main.dart",
-            "flutterMode": "release"
+            "flutterMode": "debug",
+            "args": [
+                "--flavor",
+                "staging"
+            ]
         },
         {
-            "name": "App-Dev-Debug",
+            "name": "release-staging",
             "type": "dart",
             "request": "launch",
             "program": "lib/main.dart",
-            "flutterMode": "debug"
-        }
+            "flutterMode": "release",
+            "args": [
+                "--flavor",
+                "staging"
+            ]
+        },
+        {
+            "name": "debug-product",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart",
+            "flutterMode": "debug",
+            "args": [
+                "--flavor",
+                "product"
+            ]
+        },
+        {
+            "name": "release-product",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart",
+            "flutterMode": "release",
+            "args": [
+                "--flavor",
+                "product"
+            ]
+        },
     ]
 }
