@@ -8,7 +8,7 @@
             "name": "debug-development",
             "type": "dart",
             "request": "launch",
-            "program": "lib/main.dart",
+            "program": "lib/main_development.dart",
             "flutterMode": "debug",
             "args": [
                 "--flavor",
@@ -19,7 +19,7 @@
             "name": "release-development",
             "type": "dart",
             "request": "launch",
-            "program": "lib/main.dart",
+            "program": "lib/main_development.dart",
             "flutterMode": "release",
             "args": [
                 "--flavor",
@@ -30,7 +30,7 @@
             "name": "debug-staging",
             "type": "dart",
             "request": "launch",
-            "program": "lib/main.dart",
+            "program": "lib/main_staging.dart",
             "flutterMode": "debug",
             "args": [
                 "--flavor",
@@ -41,7 +41,7 @@
             "name": "release-staging",
             "type": "dart",
             "request": "launch",
-            "program": "lib/main.dart",
+            "program": "lib/main_staging.dart",
             "flutterMode": "release",
             "args": [
                 "--flavor",
@@ -52,7 +52,7 @@
             "name": "debug-product",
             "type": "dart",
             "request": "launch",
-            "program": "lib/main.dart",
+            "program": "lib/main_production.dart",
             "flutterMode": "debug",
             "args": [
                 "--flavor",
@@ -63,7 +63,7 @@
             "name": "release-product",
             "type": "dart",
             "request": "launch",
-            "program": "lib/main.dart",
+            "program": "lib/main_production.dart",
             "flutterMode": "release",
             "args": [
                 "--flavor",
