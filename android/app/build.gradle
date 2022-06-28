@@ -59,16 +59,19 @@ android {
             dimension "flavor-type"
             resValue "string", "app_name", "[DEV] App"
             applicationIdSuffix ".dev"
+            applicationId "com.example.appconfig.dev"
         }
         staging {
             dimension "flavor-type"
             resValue "string", "app_name", "[STG] App"
             applicationIdSuffix ".stg"
+            applicationId "com.example.appconfig.stg"
         }
         product {
             dimension "flavor-type"
             resValue "string", "app_name", "[PRO] App"
             applicationIdSuffix ".prod"
+            applicationId "com.example.appconfig.pro"
         }
     }
 
