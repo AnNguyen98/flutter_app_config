@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "742686002570",
+    "project_id": "stg-app-f749a",
+    "storage_bucket": "stg-app-f749a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:742686002570:android:5252ae3d37261e7804cc73",
+        "android_client_info": {
+          "package_name": "com.annguyen98.app_config.stg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "742686002570-667gl7k9c0ocedf03sjflk114c7mjfa6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBrw4PU0QPPCcnYDfTz8dxKHVHSDMNydk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "742686002570-667gl7k9c0ocedf03sjflk114c7mjfa6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

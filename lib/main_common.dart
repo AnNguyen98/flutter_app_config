@@ -1,10 +1,14 @@
 import 'dart:developer';
 
 import 'package:app_config/environments.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void mainCommon(Environments env) {
+Future<void> mainCommon(Environments env) async {
   log('env.baseUrl ${env.baseUrl}');
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
