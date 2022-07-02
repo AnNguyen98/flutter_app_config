@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -53,6 +53,7 @@
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB2020A628700C0C00D4EABA /* Runner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
 		BB356D58286D8A8F00A91E7A /* config */ = {isa = PBXFileReference; lastKnownFileType = folder; path = config; sourceTree = "<group>"; };
 		CCB8F105705569DE4E0C1E30 /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -82,7 +83,6 @@
 				1FD984AED0AE851135615DE0 /* Pods-Runner.profile-staging.xcconfig */,
 				87409415079045DB0221EA63 /* Pods-Runner.profile-product.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -128,6 +128,7 @@
 		97C146F01CF9000F007C117D /* Runner */ = {
 			isa = PBXGroup;
 			children = (
+				BB2020A628700C0C00D4EABA /* Runner.entitlements */,
 				97C146FA1CF9000F007C117D /* Main.storyboard */,
 				97C146FD1CF9000F007C117D /* Assets.xcassets */,
 				97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */,
@@ -391,9 +392,11 @@
 				APP_NAME = "";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = SG8WKWH7TV;
 				ENABLE_BITCODE = NO;
 				FLUTTER_TARGET = /Users/an.nguyen2/Documents/Projects/Flutter/flutter_app_config/lib/main_development.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -403,7 +406,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.annguyen98.appconfig;
 				PRODUCT_NAME = Runner;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = app_config_pro;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -524,9 +527,11 @@
 				APP_NAME = "[DEV] App";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = SG8WKWH7TV;
 				ENABLE_BITCODE = NO;
 				FLUTTER_TARGET = /Users/an.nguyen2/Documents/Projects/Flutter/flutter_app_config/lib/main_development.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -536,7 +541,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.annguyen98.appconfig.dev;
 				PRODUCT_NAME = Runner;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = app_config_dev_test;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -551,9 +556,11 @@
 				APP_NAME = "[DEV] App";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = SG8WKWH7TV;
 				ENABLE_BITCODE = NO;
 				FLUTTER_TARGET = /Users/an.nguyen2/Documents/Projects/Flutter/flutter_app_config/lib/main_development.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -563,7 +570,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.annguyen98.appconfig.dev;
 				PRODUCT_NAME = Runner;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = app_config_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -632,9 +639,11 @@
 				APP_NAME = App;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = SG8WKWH7TV;
 				ENABLE_BITCODE = NO;
 				FLUTTER_TARGET = /Users/an.nguyen2/Documents/Projects/Flutter/flutter_app_config/lib/main_production.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -644,7 +653,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.annguyen98.appconfig;
 				PRODUCT_NAME = Runner;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = app_config_pro;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -714,9 +723,11 @@
 				APP_NAME = "[STG] App";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = SG8WKWH7TV;
 				ENABLE_BITCODE = NO;
 				FLUTTER_TARGET = /Users/an.nguyen2/Documents/Projects/Flutter/flutter_app_config/lib/main_staging.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -726,7 +737,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.annguyen98.appconfig.stg;
 				PRODUCT_NAME = Runner;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = app_config_stg;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -793,9 +804,11 @@
 				APP_NAME = App;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = SG8WKWH7TV;
 				ENABLE_BITCODE = NO;
 				FLUTTER_TARGET = /Users/an.nguyen2/Documents/Projects/Flutter/flutter_app_config/lib/main_production.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -805,7 +818,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.annguyen98.appconfig;
 				PRODUCT_NAME = Runner;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = app_config_pro;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -871,9 +884,11 @@
 				APP_NAME = "[STG] App";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = SG8WKWH7TV;
 				ENABLE_BITCODE = NO;
 				FLUTTER_TARGET = /Users/an.nguyen2/Documents/Projects/Flutter/flutter_app_config/lib/main_staging.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -883,7 +898,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.annguyen98.appconfig.stg;
 				PRODUCT_NAME = Runner;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = app_config_stg;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -947,9 +962,11 @@
 				APP_NAME = "";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = SG8WKWH7TV;
 				ENABLE_BITCODE = NO;
 				FLUTTER_TARGET = /Users/an.nguyen2/Documents/Projects/Flutter/flutter_app_config/lib/main_development.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -959,7 +976,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.annguyen98.appconfig;
 				PRODUCT_NAME = Runner;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = app_config_pro;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1023,9 +1040,11 @@
 				APP_NAME = "";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = SG8WKWH7TV;
 				ENABLE_BITCODE = NO;
 				FLUTTER_TARGET = /Users/an.nguyen2/Documents/Projects/Flutter/flutter_app_config/lib/main_development.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -1035,7 +1054,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.annguyen98.appconfig;
 				PRODUCT_NAME = Runner;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = app_config_pro;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

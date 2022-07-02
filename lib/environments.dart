@@ -9,6 +9,10 @@ extension En on Environments {
   bool get isProduction => this == Environments.production;
   bool get isStaging => this == Environments.staging;
 
+  FlavorValues get values {
+    return FlavorValues(baseUrl: '');
+  }
+
   String get baseUrl {
     if (isDevelopment) {
       return 'https://development.com';
@@ -17,4 +21,13 @@ extension En on Environments {
     }
     return 'https://production.com';
   }
+}
+
+class FlavorValues {
+  FlavorValues({
+    required this.baseUrl,
+  });
+
+  final String baseUrl;
+  //Add other flavor specific values, e.g database name
 }
