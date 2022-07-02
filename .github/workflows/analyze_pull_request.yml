@@ -11,7 +11,7 @@ jobs:
         with:
           flutter-version: '3.0.0'
           channel: 'stable'
-          architecture: arm64
+          architecture: x64
       - run: flutter --version
       - run: flutter pub get
       - run: flutter analyze
