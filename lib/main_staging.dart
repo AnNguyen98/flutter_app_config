@@ -1,6 +1,5 @@
-import 'package:app_config/main_common.dart';
-
 import 'environments.dart';
+import 'main_common.dart';
 
 void main() {
   mainCommon(Environments.staging);
