@@ -11,7 +11,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build_ios:
+  ios:
     name: Deploying
     runs-on: macos-latest
     steps:
@@ -56,7 +56,7 @@ jobs:
           architecture: x64
       - run: flutter pub get
 
-  build_android:
+  android:
     name: Deploying
     runs-on: macos-latest
     steps:
