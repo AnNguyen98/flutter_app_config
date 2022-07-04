@@ -404,6 +404,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = "$(FLUTTER_BUILD_NAME)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.annguyen98.appconfig;
 				PRODUCT_NAME = Runner;
 				PROVISIONING_PROFILE_SPECIFIER = app_config_pro;
@@ -539,6 +540,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = "$(FLUTTER_BUILD_NAME)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.annguyen98.appconfig.dev;
 				PRODUCT_NAME = Runner;
 				PROVISIONING_PROFILE_SPECIFIER = app_config_dev_test;
@@ -568,6 +570,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = "$(FLUTTER_BUILD_NAME)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.annguyen98.appconfig.dev;
 				PRODUCT_NAME = Runner;
 				PROVISIONING_PROFILE_SPECIFIER = app_config_dev;
@@ -651,6 +654,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = "$(FLUTTER_BUILD_NAME)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.annguyen98.appconfig;
 				PRODUCT_NAME = Runner;
 				PROVISIONING_PROFILE_SPECIFIER = app_config_pro;
@@ -735,6 +739,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = "$(FLUTTER_BUILD_NAME)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.annguyen98.appconfig.stg;
 				PRODUCT_NAME = Runner;
 				PROVISIONING_PROFILE_SPECIFIER = app_config_stg;
@@ -816,6 +821,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = "$(FLUTTER_BUILD_NAME)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.annguyen98.appconfig;
 				PRODUCT_NAME = Runner;
 				PROVISIONING_PROFILE_SPECIFIER = app_config_pro;
@@ -896,6 +902,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = "$(FLUTTER_BUILD_NAME)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.annguyen98.appconfig.stg;
 				PRODUCT_NAME = Runner;
 				PROVISIONING_PROFILE_SPECIFIER = app_config_stg;
@@ -974,6 +981,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = "$(FLUTTER_BUILD_NAME)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.annguyen98.appconfig;
 				PRODUCT_NAME = Runner;
 				PROVISIONING_PROFILE_SPECIFIER = app_config_pro;
@@ -1052,6 +1060,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = "$(FLUTTER_BUILD_NAME)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.annguyen98.appconfig;
 				PRODUCT_NAME = Runner;
 				PROVISIONING_PROFILE_SPECIFIER = app_config_pro;
