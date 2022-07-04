@@ -36,10 +36,11 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '11'
-      - name: Set up Ruby 2.6
-        uses: actions/setup-ruby@v1
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.6.x
+          ruby-version: '3.0' # Not needed with a .ruby-version file
+          bundler-cache: true
       - name: Install dependencies
         run: |
           gem install bundler
