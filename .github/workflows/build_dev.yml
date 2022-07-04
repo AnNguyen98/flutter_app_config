@@ -51,6 +51,6 @@ jobs:
         env:
           FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_CREDENTIALS }}
       - name: Add environment variables
-        run: export FIREBASE_APP_ID = ${{ secrets.FIREBASE_APP_ID }}
+        run: export FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}
       - name: Distribute app with 🔥 App Distribution 🚀
         run: bundle exec fastlane development
