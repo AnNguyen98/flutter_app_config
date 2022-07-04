@@ -30,7 +30,7 @@ jobs:
   build_android:
     name: Deploying
     runs-on: macos-latest
-    env: # $BUNDLE_GEMFILE must be set at the job level, so it is set for all steps
+    env:
       BUNDLE_GEMFILE: ${{ github.workspace }}/gemfiles/${{ matrix.gemfile }}.gemfile
     steps:
       - uses: actions/checkout@v3
@@ -45,6 +45,7 @@ jobs:
           bundler-cache: true
       - name: Install dependencies
         run: |
+          cd android
           gem install bundler
           bundle install
       # - uses: subosito/flutter-action@v2
