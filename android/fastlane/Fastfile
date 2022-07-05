@@ -41,9 +41,7 @@ end
 desc "Lane for distributing app using Firebase App Distributions"
 private_lane :deploy_to_firebase do |options|
   apk_info = get_apk_info(env: options[:env])
-
   apk_path = apk_info[:apk_path]
-  last_git_commit = last_git_commit()
   build_number = apk_info[:build_number]
   release_note = "Commit: #{last_git_commit[:commit_hash]}\n" \
                 "Message: #{last_git_commit[:message]}\n" \

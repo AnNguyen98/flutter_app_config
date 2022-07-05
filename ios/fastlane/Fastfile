@@ -13,74 +13,140 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
+PROVISIONING_DEV = "app_config_dev.mobileprovision"
+PROVISIONING_STG = "app_config_stg.mobileprovision"
+PROVISIONING_PRO = "app_config_pro.mobileprovision"
+
 default_platform(:ios)
 
+# before_all do |lane|
+#   setup_codesigning()
+# end
+
 platform :ios do
-  
-  desc "Build file .ipa for develop"
-  lane :build_develop do
-    # add actions here: https://docs.fastlane.tools/actions
+
+  desc "Build file .ipa for development"
+  lane :development do
+    if is_ci 
+      setup_codesigning(
+        lane: "development",
+        provisioning_name: PROVISIONING_DEV
+      )
+    end
+
+    deploy_app(
+      scheme: "development",
+      method: "ad-hoc",
+      provisioning_name: PROVISIONING_DEV
+    )
   end
 
   desc "Build file .ipa for staging"
-  lane :build_staging do
-    # add actions here: https://docs.fastlane.tools/actions
+  lane :staging do
+    if is_ci 
+      setup_codesigning(
+        lane: "staging",
+        provisioning_name: PROVISIONING_STG
+      )
+    end
+
+    deploy_app(
+      scheme: "staging",
+      method: "ad-hoc",
+      provisioning_name: PROVISIONING_STG
+    )
   end
 
   desc "Build file .ipa for production"
-  lane :build_production do
-    # add actions here: https://docs.fastlane.tools/actions
+  lane :production do
+    if is_ci 
+      setup_codesigning(
+        lane: "production",
+        provisioning_name: PROVISIONING_PRO
+      )
+    end
+
+    deploy_app(
+      scheme: "product",
+      method: "app-store",
+      provisioning_name: PROVISIONING_PRO
+    )
   end
 end
 
 
 desc "Import certificate & install provisioning profile"
-lane :setup_codesigning do
+private_lane :setup_codesigning do |options|
+  LANE_NAME = options[:lane]
+  PROVISIONING_NAME = options[:provisioning_name]
+  KEYCHAIN_NAME = "TempKeychain"
+
   create_keychain(
-    name: "KeychainName",
+    name: KEYCHAIN_NAME,
     default_keychain: true,
     unlock: true,
     timeout: 3600,
-    lock_when_sleeps: true
+    lock_when_sleeps: true,
+    password: ENV["KEYCHAIN_PASSWORD"]
   )
 
-  install_provisioning_profile(path: "profiles/profile.mobileprovision")
+  install_provisioning_profile(
+    path: "certs/#{LANE_NAME}/#{PROVISIONING_NAME}.mobileprovision"
+  )
 
   import_certificate(
-    certificate_path: "certs/dist.p12",
-    certificate_password: "***",
-    keychain_password: "***",
-    keychain_name: "KeychainName"
+    certificate_path: "certs/certificate.p12",
+    certificate_password: ENV["CERTIFICATE_PASSWORD"],
+    keychain_password: ENV["KEYCHAIN_PASSWORD"],
+    keychain_name: KEYCHAIN_NAME
   )
 end
 
 desc "Build file .ipa"
-private_lane :build_app do
   
-  # add actions here: https://docs.fastlane.tools/actions
+private_lane :deploy_app do |options|
+  clear_build_folder
+  
+  SCHEME = options[:scheme]
+  METHOD = options[:method]
+  PROVISIONING_NAME = options[:provisioning_name]
+  BUNDLE_ID = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
+  
   build_app(
-    scheme: "actionstest",
-    project: ENV["XCODE_PROJ"],
+    scheme: SCHEME,
+    output_name: "Runner",
+    clean: true,
+    output_directory: "./build",
+    export_method: METHOD,
+    include_bitcode: false,
+    export_options: {
+      provisioningProfiles: { 
+        BUNDLE_ID => PROVISIONING_NAME,
+      }
+    }
   )
 
+  deploy_to_firebase
+end
+
+desc "Clear build folder..."
+private_lane :clear_build_folder do 
+  sh "rm -rf ../build"
+  sh "mkdir -p ../build"
 end
 
 desc "Deploy to Firebase Distribution"
-private_lane :deploy_firebase do
+lane :deploy_to_firebase do
+  build_number = get_build_number(xcodeproj: "Runner.xcodeproj")
+  release_note = "Commit: #{last_git_commit[:commit_hash]}\n" \
+                "Message: #{last_git_commit[:message]}" \
+                "Build: #{build_number}"
+  
   firebase_app_distribution(
-    app: "1:123456789:ios:abcd1234",
-    firebase_cli_token: "",
-    testers: "tester1@company.com, tester2@company.com",
-    release_notes: "Lots of amazing new features to test out!",
-    firebase_cli_path: "/absolute/path/to/firebase/cli/binary",
-    ipa_path: ""
+    service_credentials_file: "#{Dir.pwd}/certs/firebase_credentials.json",
+    app: ENV["FIREBASE_IOS_APP_ID"],
+    release_notes: release_note,
+    groups: "qa, testers",
+    ipa_path: "./build/Runner.ipa"
   )
-end
-
-desc "Increment version"
-private_lane :increment_version do
-  latest_release = firebase_app_distribution_get_latest_release(
-    app: "<your Firebase app ID>"
-  )
-  increment_build_number({ build_number: latest_release[:buildVersion].to_i + 1 })
 end
