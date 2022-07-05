@@ -21,7 +21,6 @@ platform :android do
     if is_ci 
       deploy_to_firebase(env: "development")
     end
-    deploy_to_firebase(env: "development")
   end
 
   desc "Deploy staging app to firebase"
