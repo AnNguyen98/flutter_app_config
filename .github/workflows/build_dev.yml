@@ -41,11 +41,6 @@ jobs:
         with:
           ruby-version: '3.0' # Not needed with a .ruby-version file
           bundler-cache: true
-      - name: Install dependencies
-        run: |
-          cd android
-          gem install bundler
-          bundle install
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.0.0'
@@ -54,13 +49,20 @@ jobs:
       - run: flutter pub get
       # - name: Build app
       #   run: flutter build apk --flavor development -t lib/main_development.dart
-      - name: Create Firebase Service Credentials file
+      - name: Install dependencies
         run: |
-          echo "$FIREBASE_CREDENTIALS" > firebase_credentials.json.b64
-          base64 -d -i firebase_credentials.json.b64 > firebase_credentials.json
-        env:
-          FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_CREDENTIALS }}
-      - name: Add environment variables
-        run: export FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}
+          cd android
+          gem install bundler
+          bundle install
+      # - name: Create Firebase Service Credentials file
+      #   run: |
+      #     echo "$FIREBASE_CREDENTIALS" > firebase_credentials.json.b64
+      #     base64 -d -i firebase_credentials.json.b64 > firebase_credentials.json
+      #   env:
+      #     FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_CREDENTIALS }}
+      # - name: Add environment variables
+      #   run: export FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}
       - name: Distribute app with 🔥 App Distribution 🚀
-        run: bundle exec fastlane development
+        run: |
+          pwd
+          bundle exec fastlane development
