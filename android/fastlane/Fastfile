@@ -49,7 +49,7 @@ private_lane :deploy_to_firebase do |options|
                 "Message: #{last_git_commit[:message]}\n" \
                 "Build: #{build_number}"
 
-  gradle(task: "clean assembleRelease")
+  # gradle(task: "clean assembleRelease")
 
   firebase_app_distribution(
     service_credentials_file: "firebase_credentials.json",
