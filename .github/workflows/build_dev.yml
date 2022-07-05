@@ -41,11 +41,11 @@ jobs:
         with:
           ruby-version: '3.0' # Not needed with a .ruby-version file
           bundler-cache: true
-      - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.0.0'
-          channel: 'stable'
-          architecture: x64
+      # - uses: subosito/flutter-action@v2
+      #   with:
+      #     flutter-version: '3.0.0'
+      #     channel: 'stable'
+      #     architecture: x64
       - run: flutter pub get
       # - name: Build app
       #   run: flutter build apk --flavor development -t lib/main_development.dart
