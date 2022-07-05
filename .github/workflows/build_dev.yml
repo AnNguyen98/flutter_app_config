@@ -49,11 +49,6 @@ jobs:
       # - run: flutter pub get
       # - name: Build app
       #   run: flutter build apk --flavor development -t lib/main_development.dart
-      - name: Install dependencies
-        run: |
-          cd android
-          gem install bundler
-          bundle install
       # - name: Create Firebase Service Credentials file
       #   run: |
       #     echo "$FIREBASE_CREDENTIALS" > firebase_credentials.json.b64
@@ -64,5 +59,8 @@ jobs:
       #   run: export FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}
       - name: Distribute app with 🔥 App Distribution 🚀
         run: |
+          cd android
           pwd
+          gem install bundler
+          bundle install
           bundle exec fastlane development
