@@ -11,22 +11,22 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build_ios:
-    name: Deploying iOS
-    runs-on: macos-latest
-    environment: development
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-java@v2
-        with:
-          distribution: 'zulu'
-          java-version: '11'
-      - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.0.0'
-          channel: 'stable'
-          architecture: x64
-      - run: flutter pub get
+  # build_ios:
+  #   name: Deploying iOS
+  #   runs-on: macos-latest
+  #   environment: development
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-java@v2
+  #       with:
+  #         distribution: 'zulu'
+  #         java-version: '11'
+  #     - uses: subosito/flutter-action@v2
+  #       with:
+  #         flutter-version: '3.0.0'
+  #         channel: 'stable'
+  #         architecture: x64
+  #     - run: flutter pub get
 
   build_android:
     name: Deploying Android
@@ -38,30 +38,31 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '11'
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.0' # Not needed with a .ruby-version file
-          bundler-cache: true
-      - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.0.0'
-          channel: 'stable'
-          architecture: x64
-      - run: flutter pub get
-      - name: Build file .apk
-        run: flutter build apk --flavor development -t lib/main_development.dart
-      - name: Create Firebase Service Credentials file
-        run: |
-          echo "$FIREBASE_CREDENTIALS" > firebase_credentials.json.b64
-          base64 -d -i firebase_credentials.json.b64 > firebase_credentials.json
-        env:
-          FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_CREDENTIALS }}
-      - name: Add environment variables
-        run: export FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}
-      - name: Install dependencies & Distribute app with 🔥 App Distribution 🚀
-        run: |
-          cd android
-          bundle install
-          pwd
-          bundle exec fastlane development
+      - run: echo ${{ secrets.FIREBASE_APP_ID }}
+      # - name: Set up Ruby
+      #   uses: ruby/setup-ruby@v1
+      #   with:
+      #     ruby-version: '3.0' # Not needed with a .ruby-version file
+      #     bundler-cache: true
+      # - uses: subosito/flutter-action@v2
+      #   with:
+      #     flutter-version: '3.0.0'
+      #     channel: 'stable'
+      #     architecture: x64
+      # - run: flutter pub get
+      # - name: Build file .apk
+      #   run: flutter build apk --flavor development -t lib/main_development.dart
+      # - name: Create Firebase Service Credentials file
+      #   run: |
+      #     echo "$FIREBASE_CREDENTIALS" > firebase_credentials.json.b64
+      #     base64 -d -i firebase_credentials.json.b64 > firebase_credentials.json
+      #   env:
+      #     FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_CREDENTIALS }}
+      # - name: Add environment variables
+      #   run: export FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}
+      # - name: Install dependencies & Distribute app with 🔥 App Distribution 🚀
+      #   run: |
+      #     cd android
+      #     bundle install
+      #     pwd
+      #     bundle exec fastlane development
