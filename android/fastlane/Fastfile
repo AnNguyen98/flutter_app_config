@@ -53,7 +53,7 @@ private_lane :deploy_to_firebase do |options|
 
   firebase_app_distribution(
     service_credentials_file: "#{Dir.pwd}/certs/firebase_credentials.json",
-    app: ENV['FIREBASE_ANDROID_APP_ID'],
+    app: ENV["FIREBASE_ANDROID_APP_ID"],
     release_notes: release_note,
     groups: "qa, testers",
     android_artifact_path: apk_path
