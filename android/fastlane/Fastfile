@@ -19,21 +19,21 @@ platform :android do
   desc "Deploy development app to firebase"
   lane :development do
     if is_ci 
-      distribute(env: "development")
+      deploy_to_firebase(env: "development")
     end
   end
 
   desc "Deploy staging app to firebase"
   lane :staging do
     if is_ci 
-      distribute(env: "staging")
+      deploy_to_firebase(env: "staging")
     end
   end
 
   desc "Deploy production app to firebase"
   lane :production do
     if is_ci 
-      distribute(env: "production")
+      deploy_to_firebase(env: "production")
     end
   end
 end
