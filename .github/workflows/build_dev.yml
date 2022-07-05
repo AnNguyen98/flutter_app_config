@@ -51,20 +51,23 @@ jobs:
       - run: flutter pub get
       - name: Build file .apk
         run: flutter build apk --flavor development -t lib/main_development.dart
-      - name: Create Firebase Service Credentials file
-        run: |
-          mkdir -p android/fastlane/certs
-          cd android/fastlane/certs
-          pwd
-          echo "$FIREBASE_CREDENTIALS" > firebase_credentials.json.b64
-          base64 -d -i firebase_credentials.json.b64 > firebase_credentials.json
-        env:
-          FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_CREDENTIALS }}
+      # - name: Create Firebase Service Credentials file
+      #   run: |
+      #     mkdir -p android/fastlane/certs
+      #     cd android/fastlane/certs
+      #     pwd
+      #     echo "$FIREBASE_CREDENTIALS" > firebase_credentials.json.b64
+      #     base64 -d -i firebase_credentials.json.b64 > firebase_credentials.json
+      #   working-directory: ./android
+      # env:
+      #   FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_CREDENTIALS }}
       - name: Add environment variables
         run: export FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}
-      - name: Install dependencies & Distribute app with 🔥 App Distribution 🚀
-        run: |
-          cd android
-          bundle install
-          pwd
-          bundle exec fastlane development
+
+      - name: Install dependencies
+        run: bundle install
+        working-directory: ./android
+
+      - name: Distribute app with 🔥 App Distribution 🚀
+        run: bundle exec fastlane development
+        working-directory: ./android
