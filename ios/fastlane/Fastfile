@@ -91,7 +91,7 @@ private_lane :setup_codesigning do |options|
   )
 
   install_provisioning_profile(
-    path: "certs/#{LANE_NAME}/#{PROVISIONING_NAME}"
+    path: "#{Dir.pwd}/certs/#{LANE_NAME}/#{PROVISIONING_NAME}"
   )
 
   import_certificate(
