@@ -52,7 +52,7 @@ private_lane :deploy_to_firebase do |options|
   # gradle(task: "clean assembleRelease")
 
   firebase_app_distribution(
-    service_credentials_file: "certs/firebase_credentials.json",
+    service_credentials_file: "/certs/firebase_credentials.json",
     app: "1:266579256539:android:1f0abd3b36b34957a798fe", # ENV['FIREBASE_APP_ID'],
     release_notes: release_note,
     groups: "qa, testers",
