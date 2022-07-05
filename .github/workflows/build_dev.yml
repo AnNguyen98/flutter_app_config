@@ -53,6 +53,11 @@ jobs:
       - name: Build file .apk
         run: flutter build apk --flavor development -t lib/main_development.dart
 
+      - name: Make certs directory
+        run: |
+          mkdir -p fastlane/certs
+        working-directory: ./android
+
       - name: Create Firebase Service Credentials file
         run: |
           echo "$FIREBASE_CREDENTIALS" > firebase_credentials.json.b64
