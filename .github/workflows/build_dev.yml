@@ -68,7 +68,7 @@ jobs:
 
       - name: Add environment variables
         run: |
-          export FIREBASE_ANDROID_APP_ID="$FIREBASE_ANDROID_APP_ID"
+          export FIREBASE_ANDROID_APP_ID=${{ env.FIREBASE_ANDROID_APP_ID }}
         env:
           FIREBASE_ANDROID_APP_ID: ${{ secrets.FIREBASE_ANDROID_APP_ID }}
 
