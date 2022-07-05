@@ -49,18 +49,18 @@ jobs:
           channel: 'stable'
           architecture: x64
       - run: flutter pub get
+
       - name: Build file .apk
         run: flutter build apk --flavor development -t lib/main_development.dart
-      # - name: Create Firebase Service Credentials file
-      #   run: |
-      #     mkdir -p android/fastlane/certs
-      #     cd android/fastlane/certs
-      #     pwd
-      #     echo "$FIREBASE_CREDENTIALS" > firebase_credentials.json.b64
-      #     base64 -d -i firebase_credentials.json.b64 > firebase_credentials.json
-      #   working-directory: ./android
-      # env:
-      #   FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_CREDENTIALS }}
+
+      - name: Create Firebase Service Credentials file
+        run: |
+          echo "$FIREBASE_CREDENTIALS" > firebase_credentials.json.b64
+          base64 -d -i firebase_credentials.json.b64 > firebase_credentials.json
+        working-directory: ./android/fastlane/certs
+        env:
+          FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_CREDENTIALS }}
+
       - name: Add environment variables
         run: export FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}
 
