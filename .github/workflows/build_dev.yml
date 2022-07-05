@@ -52,8 +52,8 @@ jobs:
           channel: 'stable'
           architecture: x64
       - run: flutter pub get
-      - name: Build app
-        run: flutter build apk --flavor development -t lib/main_development.dart
+      # - name: Build app
+      #   run: flutter build apk --flavor development -t lib/main_development.dart
       - name: Create Firebase Service Credentials file
         run: |
           echo "$FIREBASE_CREDENTIALS" > firebase_credentials.json.b64
