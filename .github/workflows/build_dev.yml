@@ -57,8 +57,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          bundle pod cache clean --all
           bundle install
+          bundle pod cache clean --all
           bundle exec pod install
         working-directory: ./ios
 
