@@ -46,7 +46,7 @@ jobs:
       #     flutter-version: '3.0.0'
       #     channel: 'stable'
       #     architecture: x64
-      - run: flutter pub get
+      # - run: flutter pub get
       # - name: Build app
       #   run: flutter build apk --flavor development -t lib/main_development.dart
       - name: Install dependencies
