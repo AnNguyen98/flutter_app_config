@@ -9,9 +9,7 @@ extension En on Environments {
   bool get isProduction => this == Environments.production;
   bool get isStaging => this == Environments.staging;
 
-  FlavorValues get values {
-    return FlavorValues(baseUrl: '');
-  }
+  FlavorValues get values => FlavorValues(baseUrl: '');
 
   String get baseUrl {
     if (isDevelopment) {

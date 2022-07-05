@@ -5,11 +5,10 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class AppPushService {
+  factory AppPushService() => _instance;
   AppPushService._();
 
   static final _instance = AppPushService._();
-
-  factory AppPushService() => _instance;
 
   late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
   late AndroidNotificationChannel notificationChannel;
@@ -17,7 +16,7 @@ class AppPushService {
   Future<void> init() async {
     final messaging = FirebaseMessaging.instance;
 
-    NotificationSettings settings = await messaging.requestPermission();
+    final settings = await messaging.requestPermission();
     if (settings.authorizationStatus == AuthorizationStatus.authorized) {
       log('User granted permission');
     } else if (settings.authorizationStatus ==
@@ -28,7 +27,7 @@ class AppPushService {
     }
 
     if (Platform.isIOS) {
-      messaging.setForegroundNotificationPresentationOptions(
+      await messaging.setForegroundNotificationPresentationOptions(
         alert: true,
         badge: true,
         sound: true,
@@ -50,16 +49,16 @@ class AppPushService {
       const initializationSettingsAndroid = AndroidInitializationSettings(
         'ic_notification',
       );
-      var initializationSettings = const InitializationSettings(
+      const initializationSettings = InitializationSettings(
         android: initializationSettingsAndroid,
       );
-      flutterLocalNotificationsPlugin.initialize(
+      await flutterLocalNotificationsPlugin.initialize(
         initializationSettings,
         onSelectNotification: onSelectNotification,
       );
     }
 
-    _setupToken();
+    await _setupToken();
 
     FirebaseMessaging.onMessage.listen((message) {
       log('Got a message whilst in the foreground!');
@@ -85,8 +84,8 @@ class AppPushService {
   }
 
   void _handleShowNotificationOnForegroundAndroid(RemoteMessage message) {
-    RemoteNotification? notification = message.notification;
-    AndroidNotification? android = message.notification?.android;
+    final notification = message.notification;
+    final android = message.notification?.android;
 
     // If `onMessage` is triggered with a notification, construct our own
     // local notification to show to users using the created channel.
@@ -112,7 +111,7 @@ class AppPushService {
 
   Future<void> _setupToken() async {
     // Get the token each time the application loads
-    String? token = await FirebaseMessaging.instance.getToken();
+    final token = await FirebaseMessaging.instance.getToken();
     log('Token:  $token');
 
     // final deviceToken = await FirebaseMessaging.instance.getAPNSToken();
@@ -127,7 +126,6 @@ class AppPushService {
 
   Future<void> _saveTokenToDatabase(String token) async {}
 
-  Future<RemoteMessage?> getInitialMessage() async {
-    return FirebaseMessaging.instance.getInitialMessage();
-  }
+  Future<RemoteMessage?> getInitialMessage() async =>
+      FirebaseMessaging.instance.getInitialMessage();
 }

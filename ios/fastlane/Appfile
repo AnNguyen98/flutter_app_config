@@ -1,0 +1,15 @@
+app_identifier("")
+apple_id("")
+team_id("SG8WKH7TV")
+
+for_lane :development do 
+    app_identifier("com.annguyen98.appconfig.dev")
+end
+
+for_lane :staging do 
+    app_identifier("com.annguyen98.appconfig.stg")
+end
+
+for_lane :production do 
+    app_identifier("com.annguyen98.appconfig")
+end
