@@ -38,7 +38,9 @@ jobs:
       #   with:
       #     distribution: 'zulu'
       #     java-version: '11'
-      - run: echo ${{ secrets.FIREBASE_APP_ID }}
+      - run: |
+          echo 'AAAA'
+          echo "${{ secrets.FIREBASE_APP_ID }}"
       # - name: Set up Ruby
       #   uses: ruby/setup-ruby@v1
       #   with:
