@@ -103,7 +103,6 @@ private_lane :setup_codesigning do |options|
 end
 
 desc "Build file .ipa"
-  
 private_lane :deploy_app do |options|
   clear_build_folder
   

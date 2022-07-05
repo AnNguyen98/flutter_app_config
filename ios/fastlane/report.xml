@@ -5,32 +5,22 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000407">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000376">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: is_ci" time="0.000255">
+      <testcase classname="fastlane.lanes" name="1: get_build_number" time="0.440482">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: Switch to ios deploy_app lane" time="0.000896">
+      <testcase classname="fastlane.lanes" name="2: last_git_commit" time="0.217956">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: Switch to ios clear_build_folder lane" time="0.000219">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="4: rm -rf ../build" time="0.005187">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="5: mkdir -p ../build" time="0.003776">
+      <testcase classname="fastlane.lanes" name="3: last_git_commit" time="0.232009">
         
       </testcase>
     

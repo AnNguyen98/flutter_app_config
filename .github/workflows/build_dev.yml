@@ -1,11 +1,9 @@
 name: Build & Deploy Dev
 
-# on:
-#   push:
-#     branches:
-#       - 'develop'
 on:
-  pull_request:
+  push:
+    branches:
+      - 'develop'
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -59,60 +57,59 @@ jobs:
         run: |
           bundle install
           pod install
-
         working-directory: ./ios
 
       - name: Distribute app with 🔥 App Distribution 🚀
         run: bundle exec fastlane development
         working-directory: ./ios
 
-  # build_android:
-  #   name: Deploying Android
-  #   runs-on: macos-latest
-  #   environment: development
-  #   env:
-  #     FIREBASE_ANDROID_APP_ID: ${{ secrets.FIREBASE_ANDROID_APP_ID }}
-  #     FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_CREDENTIALS }}
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: actions/setup-java@v2
-  #       with:
-  #         distribution: 'zulu'
-  #         java-version: '11'
-  #     - name: Set up Ruby
-  #       uses: ruby/setup-ruby@v1
-  #       with:
-  #         ruby-version: '3.0' # Not needed with a .ruby-version file
-  #         bundler-cache: true
-  #     - uses: subosito/flutter-action@v2
-  #       with:
-  #         flutter-version: '3.0.0'
-  #         channel: 'stable'
-  #         architecture: x64
-  #     - run: flutter pub get
+  build_android:
+    name: Deploying Android
+    runs-on: macos-latest
+    environment: development
+    env:
+      FIREBASE_ANDROID_APP_ID: ${{ secrets.FIREBASE_ANDROID_APP_ID }}
+      FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_CREDENTIALS }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0' # Not needed with a .ruby-version file
+          bundler-cache: true
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.0.0'
+          channel: 'stable'
+          architecture: x64
+      - run: flutter pub get
 
-  #     - name: Build file .apk
-  #       run: flutter build apk --flavor development -t lib/main_development.dart
+      - name: Build file .apk
+        run: flutter build apk --flavor development -t lib/main_development.dart
 
-  #     - name: Make certs directory
-  #       run: |
-  #         mkdir -p fastlane/certs
-  #       working-directory: ./android
+      - name: Make certs directory
+        run: |
+          mkdir -p fastlane/certs
+        working-directory: ./android
 
-  #     - name: Create Firebase Service Credentials file
-  #       run: |
-  #         echo "$FIREBASE_CREDENTIALS" > firebase_credentials.json.b64
-  #         base64 -d -i firebase_credentials.json.b64 > firebase_credentials.json
-  #       working-directory: ./android/fastlane/certs
+      - name: Create Firebase Service Credentials file
+        run: |
+          echo "$FIREBASE_CREDENTIALS" > firebase_credentials.json.b64
+          base64 -d -i firebase_credentials.json.b64 > firebase_credentials.json
+        working-directory: ./android/fastlane/certs
 
-  #     - name: Add environment variables
-  #       run: |
-  #         export FIREBASE_ANDROID_APP_ID=${{ env.FIREBASE_ANDROID_APP_ID }}
+      - name: Add environment variables
+        run: |
+          export FIREBASE_ANDROID_APP_ID=${{ env.FIREBASE_ANDROID_APP_ID }}
 
-  #     - name: Install dependencies
-  #       run: bundle install
-  #       working-directory: ./android
+      - name: Install dependencies
+        run: bundle install
+        working-directory: ./android
 
-  #     - name: Distribute app with 🔥 App Distribution 🚀
-  #       run: bundle exec fastlane development
-  #       working-directory: ./android
+      - name: Distribute app with 🔥 App Distribution 🚀
+        run: bundle exec fastlane development
+        working-directory: ./android
