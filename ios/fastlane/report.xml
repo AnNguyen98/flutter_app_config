@@ -5,17 +5,17 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000399">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000514">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: Switch to ios setup_codesigning lane" time="0.00137">
+      <testcase classname="fastlane.lanes" name="1: is_ci" time="0.00026">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: install_provisioning_profile" time="0.142506">
+      <testcase classname="fastlane.lanes" name="2: Switch to ios deploy_app lane" time="0.000219">
         
       </testcase>
     

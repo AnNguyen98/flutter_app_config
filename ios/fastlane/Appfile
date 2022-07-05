@@ -2,7 +2,7 @@ app_identifier("")
 apple_id("")
 team_id("SG8WKH7TV")
 
-for_lane :develop do 
+for_lane :development do 
     app_identifier("com.annguyen98.appconfig.dev")
 end
 
